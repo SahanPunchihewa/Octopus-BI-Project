@@ -6,7 +6,7 @@ const userController = {
   create: async (req, res) => {
     try {
       const { name, email, personalContact, homeContact,password } = req.body;
-      const sql = "insert into users(name,email,personalContact, homeContact,password) values(?,?,?)";
+      const sql = "insert into users(name,email,personalContact, homeContact,password) values(?,?,?,?,?)";
       const [rows, fields] = await db.query(sql, [name, email, personalContact, homeContact, password]);
       res.json({
         data: rows,
@@ -95,7 +95,7 @@ const userController = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-      const sql = `select * from admin where email = ? and password = ?`
+      const sql = "select * from admin where email = ? and password = ?"
       const [rows, fields] = await db.query(sql, [email, password]);
       res.json({
         data: rows,

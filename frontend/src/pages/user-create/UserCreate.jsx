@@ -4,6 +4,22 @@ import { Link } from "react-router-dom";
 
 const UserCreate = () => {
 
+    const {UserRegister} = useContext(UserContext)
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        const newUser = {
+           name: e.target.name.value,
+          email: e.target.email.value,
+          personalContact : e.target.personalContact.value,
+          homeContact: e.target.homeContact.value,
+          password: e.target.password.value,
+        };
+    
+        UserRegister(newUser);
+      };
+
     return (
         <>
             <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -14,7 +30,7 @@ const UserCreate = () => {
                         </h2>
                     </div>
 
-                    <form className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" >
+                    <form className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" onSubmit={handleSubmit}>
                         <div className="sm:col-span-2">
                             <label className="mb-2 inline-block text-sm text-gray-800 sm:text-base">Name*</label>
                             <input
