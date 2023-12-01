@@ -16,9 +16,7 @@ export function AdminProvider ({children}) {
     const AdminLogin = (values) => {
         AdminAPI.login(values)
           .then((response) => {
-            localStorage.setItem("uId", response.data.id);
-            localStorage.setItem("name", response.data.name);
-            localStorage.setItem("email", response.data.email);    
+           
             makeToast({ type: "success", message: "Login Successful" });
             window.location.href = "/admin";
           })

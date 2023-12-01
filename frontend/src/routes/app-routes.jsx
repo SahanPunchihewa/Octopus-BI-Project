@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import CheckLoginStatus from "./CheckLoginStatus";
 import Header from "../components/Header";
 
-import { Home, UserLogin } from "../pages";
+import { Home, AdminLogin, AdminDashboard} from "../pages";
 
 const AppRoutes = () => {
 	return (
@@ -15,7 +15,8 @@ const AppRoutes = () => {
 					<Routes>
 						{/* Public Routes */}
 						<Route path="/" element={<Home />} />
-						<Route path="/user/login" element={<UserLogin />} />
+						<Route path="/admin/login" element={<AdminLogin />} />
+						<Route path="/admin/dashboard" element={<AdminDashboard />} />
 					</Routes>
 				</div>
 			</Router>

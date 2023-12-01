@@ -34,7 +34,7 @@ const Header = () => {
                 
                   <li className="ml-20 bg-white hover:bg-gray-300 px-5 rounded-lg ">
                     <Link
-                      to="/user"
+                      to="/admin/dashboard"
                       className="text-base font-bold  text-primary-blue "
                     >
                       <h1 className="mt-2 mb-2 text-base font-bold  text-primary-blue">
@@ -51,7 +51,7 @@ const Header = () => {
               
                     <li className="ml-4 bg-white hover:bg-gray-300 px-5 rounded-lg ">
                       <Link
-                        to="/user/login"
+                        to="/admin/login"
                         className="text-base font-bold  text-primary-blue "
                       >
                         <h1 className="mt-2 mb-2 text-base font-bold  text-primary-blue">
