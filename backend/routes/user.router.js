@@ -8,6 +8,7 @@ router.get("/", userController.getAll);
 router.get("/:id",userController.getById);
 router.put("/:id",userController.update);
 router.delete("/:id", userController.delete);
+router.post("/login", userController.login);
 
 
 

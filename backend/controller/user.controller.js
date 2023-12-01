@@ -20,13 +20,13 @@ const userController = {
       function (error, results, fields) {
         if (error) {
           res.json({
-            code: 400,
+            status: 400,
             failed: "error occurred",
             error: error,
           });
         } else {
           res.json({
-            code: 200,
+            status: 200,
             success: "User Created",
           });
         }
@@ -103,6 +103,29 @@ const userController = {
       console.log(error);
       res.json({
         status: "error",
+      });
+    }
+  },
+
+  login: async (res, req) => {
+    
+    const {email} = req.body
+    const {password} = req.body
+
+    const sql = "select from users where email = ? and password = ?";
+    const [rows, fields] = await db.query(sql, [email, password]);
+
+    const comparison = await bcrypt.compare(password, results[0].password);
+
+    if (comparison) {
+      res.json({
+        status: 200,
+        message: "login successful",
+      });
+    } else {
+      res.json({
+        status: 204,
+        message: "Email and Password Not Match",
       });
     }
   },
