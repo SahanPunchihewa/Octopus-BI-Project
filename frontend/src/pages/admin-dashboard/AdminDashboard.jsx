@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import UserContext from "../../contexts/UserContext";
+import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
 
@@ -97,7 +98,14 @@ const AdminDashboard = () => {
                     </tbody>
 
                 </table>
+
+
             </div>
+            <Link to="/user/create">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-8 mt-4">
+                Create User
+            </button>
+            </Link>
         </>
     )
 

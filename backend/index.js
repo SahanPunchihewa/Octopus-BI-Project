@@ -17,6 +17,9 @@ app.use("/api/users", userRouter);
 const adminRouter  = require("./routes/admin.router")
 app.use("/api/admin", adminRouter)
 
+const hobbyRouter = require("./routes/hobby.router")
+app.use("/api/hobby", hobbyRouter)
+
 const PORT = process.env.PORT
 
 app.listen(PORT, () => {
