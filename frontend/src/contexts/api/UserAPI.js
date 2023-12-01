@@ -24,6 +24,9 @@ class UserAPI {
         return axios.delete(`${BASE_URL}/users/${id}`)
     }
     
+    static login(values) {
+        return axios.post(`${BASE_URL}/users/login`)
+    }
 }
 
 export default UserAPI;
