@@ -109,13 +109,15 @@ const userController = {
 
   login: async (res, req) => {
     
-    const {email} = req.body
-    const {password} = req.body
+    const email = req.body
+    const password = req.body
 
-    const sql = "select from users where email = ? and password = ?";
-    const [rows, fields] = await db.query(sql, [email, password]);
+    const sql = "select * from users where email = email and password = password";
+    const [rows, fields] = await db.query(sql, email, password);
 
-    const comparison = await bcrypt.compare(password, results[0].password);
+    if(rows.length >0){ 
+
+    const comparison = await bcrypt.compare(password, rows[0]);
 
     if (comparison) {
       res.json({
@@ -128,7 +130,13 @@ const userController = {
         message: "Email and Password Not Match",
       });
     }
-  },
+  }else {
+    res.json({
+      status: 206,
+      message: "Email not found"
+    })
+  }
+}
 };
 
 module.exports = userController;
